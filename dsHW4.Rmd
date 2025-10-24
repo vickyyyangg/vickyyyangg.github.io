@@ -1,9 +1,36 @@
 ---
-title: "Welcome to My Website"
+title: "Welcome to My Website!"
 output: 
   html_document:
     toc: true
     toc_float: true
     theme: cerulean
 ---
+
+This website is created for my Data Science homework. It includes a brief introduction about myself and my related experience. 
+
+![](https://gifsec.com/wp-content/uploads/2022/09/welcome-gif-3.gif)
+
+
+
+
+
+### A little about me
+
+My name is Vicky and I was born in New York and have lived here my whole life. But I moved to Boston for college in 2021 for 4 years.
+
+Some of my hobbies include: walking, shopping, traveling, eating,  exploring, and watching Netflix :)
+
+### More about me
+Learn more about my academic and professional experience [here](about.html).
+
+
+### Let's connect!
+
+* More of my projects can be found through [My GitHub Account](https://github.com/vickyyyangg?tab=repositories)
+
+* [My Email](mailto: vy2196@cumc.columbia.edu)
+
+* [LinkedIn](https://www.linkedin.com/in/vicky-yang03/)
+
 
