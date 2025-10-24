@@ -1,0 +1,53 @@
+---
+title: "My Academic and Professional Experience"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+    css: styles.css
+---
+
+Click here to go back to [home page](dsHW4.html)
+
+### Education
+Columbia University, Mailman School of Public Health (Expect May 2027)
+<br>*Master of Science, Biostatistics with a concentration in Public Health Data Science*<br>            
+
+Boston University, Sargent College of Health & Rehabilitation Sciences (May 2021)
+<br>*Bachelor of Science, Major in Health Sciences, Minor in Data Science*<br>
+
+### Relevant Experience
+Boston University, Department of Sociology (Sep 2024 - May 2025)
+<br>*Research Assistant*<br>
+
+* Produced podcast series on Global Health Politics using Audacity and journalistic frameworks.
+* Collaborated with the professor to advance expertise in investigative journalism and medical anthropology.
+
+Boston University, Department of Dermatology (May 2024 - Aug 2024)
+<br>*Administrative Assistant Coordinator*<br>
+
+* Supported clinical communication by formatting and distributing timely medical reports.
+* Organized thousands of patient biopsy records and skin slides for diagnostic accuracy.
+
+### Professional Experience
+
+Boston University, Sargent College of Health & Rehabilitation Sciences (Sep 2024 - May 2025)
+<br>*Communication Assistant*<br>
+
+* Promoted events and shared student perspectives to foster campus community and engage prospective students.
+* Drafted health education materials to promote student wellness events via newsletters.
+
+### Academic Project
+Boston University, Public Health Policy & Advocacy (Sep 2024 - Dec 2024)
+<br>*Public Health Advocate*<br>
+
+* Created advocacy strategy supporting Medicare for All legislation in Massachusetts.
+* Delivered persuasive testimony combining policy insight, personal narratives, and data.
+
+### Skills
+Data Tools: SQL, Python, Rust, Qualtrics, Microsoft Office, R
+
+Multimedia: Adobe, Audacity, Canva, WordPress, Final Cut Pro
+
+Language: Bilingual in English and Chinese (Mandarin)
