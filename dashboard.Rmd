@@ -34,8 +34,13 @@ set.seed(123)
 nynoaadat_sample = sample_n(nynoaa_clean, 1000)
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
 #### Chart A
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+```{r}
 
 snow_line = nynoaadat_sample |>
   group_by(date) |>
@@ -56,15 +61,14 @@ plot_ly(
   )
 ```
 
-
-
+Column {data-width=350}
+-----------------------------------------------------------------------
 
 
 #### Chart B
 
 
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
 #Bar Plot – Total Precipitation by Month
 precip_bar = nynoaadat_sample |>
 group_by(month) |>
@@ -77,12 +81,12 @@ plot_ly(data = precip_bar, x = ~month,
         type = 'bar',
         marker = list(color = 'pink')) |>
   layout(title = "Total Monthly Precipitation",
-         xaxis = list(title = "Month(1981–2010)"),
+         xaxis = list(title = "Month(from year 1981–2010)"),
          yaxis = list(title = "Total Precipitation (mm)"))
 ```
 
 #### Chart C
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
 #Box Plot – Monthly Temperature Spread
 plot_ly(data = nynoaadat_sample,
         x = ~month,
@@ -93,7 +97,7 @@ plot_ly(data = nynoaadat_sample,
         pointpos = -1.8) |>
   layout(
     title = "Distribution of Daily Max Temperature by Month",
-    xaxis = list(title = "Month(1981–2010)"),
+    xaxis = list(title = "Month(from year 1981–2010)"),
     yaxis = list(title = "Max Temperature (°C)"))
 ```
 
