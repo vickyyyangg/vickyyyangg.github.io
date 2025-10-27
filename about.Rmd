@@ -8,8 +8,6 @@ output:
     css: styles.css
 ---
 
-Click here to go back to [home page](dsHW4.html)
-
 ### Education
 Columbia University, Mailman School of Public Health (Expect May 2027)
 <br>*Master of Science, Biostatistics with a concentration in Public Health Data Science*<br>            
