@@ -2,9 +2,9 @@
 title: "NOAA Weather Data Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: rows
-    vertical_layout: scroll
-runtime: shiny
+    orientation: columns
+    vertical_layout: fill
+
 ---
 
 ```{r setup, include=FALSE}
@@ -17,8 +17,10 @@ library(flexdashboard)
 All of the data points are randomly selected due to its large values. 
 
 
+Column {data-width=650}
+-----------------------------------------------------------------------
 
-
+### Chart A
 ```{r}
 
 nynoaadat = read.csv("nynoaadat.csv")
@@ -37,6 +39,10 @@ nynoaadat_sample = sample_n(nynoaadat, 1000)
 
 ```
 
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
 ```{r}
 #temperature trends line plot
 
@@ -51,7 +57,7 @@ temp_line = nynoaadat_sample |>
 ```
 
 
-
+### Chart C
 ```{r}
 #Bar Plot – Total Precipitation by Month
 precip_bar = nynoaadat_sample |>

@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    css: styles.css
 ---
 
 This website is created for my Data Science homework. It includes a brief introduction about myself and my related experience. 
@@ -29,8 +29,7 @@ Learn more about my academic and professional experience [here](about.html).
 
 * More of my projects can be found through [My GitHub Account](https://github.com/vickyyyangg?tab=repositories)
 
-* [My Email](mailto: vy2196@cumc.columbia.edu)
-
 * [LinkedIn](https://www.linkedin.com/in/vicky-yang03/)
+
 
 
