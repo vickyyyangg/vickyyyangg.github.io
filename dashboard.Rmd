@@ -7,6 +7,7 @@ output:
 
 ---
 
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(plotly)
@@ -14,7 +15,6 @@ library(p8105.datasets)
 library(flexdashboard)
 
 ```
-All of the data points are randomly selected due to its large file size. 
 
 
 
@@ -37,10 +37,10 @@ nynoaadat_sample = sample_n(nynoaa_clean, 1000)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
+
 #### Chart A
 
-
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
 snow_line = nynoaadat_sample |>
   group_by(date) |>
@@ -61,14 +61,14 @@ plot_ly(
   )
 ```
 
+
 Column {data-width=350}
 -----------------------------------------------------------------------
 
 
 #### Chart B
 
-
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 #Bar Plot – Total Precipitation by Month
 precip_bar = nynoaadat_sample |>
 group_by(month) |>
@@ -86,7 +86,7 @@ plot_ly(data = precip_bar, x = ~month,
 ```
 
 #### Chart C
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 #Box Plot – Monthly Temperature Spread
 plot_ly(data = nynoaadat_sample,
         x = ~month,
