@@ -1,0 +1,87 @@
+---
+title: "NOAA Weather Data Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+library(flexdashboard)
+
+```
+All of the data points are randomly selected due to its large values. 
+
+
+
+
+```{r}
+
+nynoaadat = read.csv("nynoaadat.csv")
+
+# cleaning data
+nynoaadat = nynoaadat |>
+  filter(!is.na(tmax), !is.na(tmin)) |>
+  mutate(
+    year = lubridate::year(date),
+    month = lubridate::month(date, label = TRUE),
+    day = lubridate::day(date))
+
+#takes a random sample
+set.seed(123)
+nynoaadat_sample = sample_n(nynoaadat, 1000)
+
+```
+
+```{r}
+#temperature trends line plot
+
+temp_line = nynoaadat_sample |>
+  group_by(date) |>
+  summarise(mean_tmax = mean(tmax, na.rm = TRUE))
+  plot_ly( data = temp_line, x = ~date, y = ~mean_tmax,
+  type = 'scatter', mode = 'lines', line = list(width = 1.5)) |>
+  layout( title = "Average Daily Maximum Temperature", 
+          xaxis = list(title = "Date"),
+          yaxis = list(title = "Max Temperature (°C)"))
+```
+
+
+
+```{r}
+#Bar Plot – Total Precipitation by Month
+precip_bar = nynoaadat_sample |>
+group_by(month) |>
+summarise(total_prcp = sum(prcp, na.rm = TRUE))
+
+
+
+plot_ly(data = precip_bar, x = ~month,
+        y = ~total_prcp,
+        type = 'bar',
+        marker = list(color = 'pink')) |>
+  layout(title = "Total Monthly Precipitation",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Total Precipitation (mm)"))
+```
+
+
+```{r}
+#Box Plot – Monthly Temperature Spread
+plot_ly(data = nynoaadat_sample,
+        x = ~month,
+        y = ~tmax,
+        type = "box",
+        color = ~month,
+        jitter = 0.3,
+        pointpos = -1.8) |>
+  layout(
+    title = "Distribution of Daily Max Temperature by Month",
+    xaxis = list(title = "Month"),
+    yaxis = list(title = "Max Temperature (°C)"))
+```
+
