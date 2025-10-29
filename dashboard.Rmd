@@ -4,14 +4,13 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-    navbar:
-      - { title: "← Back to Home", href: "index.html" }
 
 ---
 
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(lubridate)
 library(plotly)
 library(p8105.datasets)
 library(flexdashboard)
@@ -36,23 +35,24 @@ set.seed(123)
 nynoaadat_sample = sample_n(nynoaa_clean, 1000)
 ```
 
+Column {data-width=500}
+-----------------------------------------------------------------------
 
-#### Chart A
+
+### Chart A
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
-snow_line = nynoaadat_sample |>
-  group_by(date) |>
-  summarise(mean_snow = mean(snow, na.rm = TRUE))
-
-# Plot Snowfall trend
 plot_ly(
-  data = snow_line,
+  data = nynoaadat_sample |> 
+    group_by(date) |> 
+    summarise(mean_snow = mean(snow, na.rm = TRUE)),
   x = ~date,
   y = ~mean_snow,
   type = 'scatter',
   mode = 'lines',
-  line = list(width = 1.5, color = 'orange')) |>
+  line = list(width = 1.5, color = 'orange')
+) |>
   layout(
     title = "Average Daily Snowfall (mm)",
     xaxis = list(title = "Date"),
@@ -61,26 +61,29 @@ plot_ly(
 ```
 
 
-#### Chart B
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+
+### Chart B
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-#Bar Plot – Total Precipitation by Month
-precip_bar = nynoaadat_sample |>
-group_by(month) |>
-summarise(total_prcp = sum(prcp, na.rm = TRUE))
-
-
-
-plot_ly(data = precip_bar, x = ~month,
-        y = ~total_prcp,
-        type = 'bar',
-        marker = list(color = 'pink')) |>
-  layout(title = "Total Monthly Precipitation",
-         xaxis = list(title = "Month(from year 1981–2010)"),
-         yaxis = list(title = "Total Precipitation (mm)"))
+plot_ly(
+  data = nynoaadat_sample |>
+    group_by(month) |>
+    summarise(total_prcp = sum(prcp, na.rm = TRUE)),
+  x = ~month,
+  y = ~total_prcp,
+  type = 'bar',
+  marker = list(color = 'pink')) |>
+  layout(
+    title = "Total Monthly Precipitation",
+    xaxis = list(title = "Month (from year 1981–2010)"),
+    yaxis = list(title = "Total Precipitation (mm)")
+  )
 ```
 
-#### Chart C
+### Chart C
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 #Box Plot – Monthly Temperature Spread
 plot_ly(data = nynoaadat_sample,
@@ -95,4 +98,6 @@ plot_ly(data = nynoaadat_sample,
     xaxis = list(title = "Month(from year 1981–2010)"),
     yaxis = list(title = "Max Temperature (°C)"))
 ```
+
+
 
